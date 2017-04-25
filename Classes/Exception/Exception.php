@@ -21,5 +21,6 @@ namespace Cobweb\Expressions\Exception;
  * @package TYPO3
  * @subpackage tx_expressions
  */
-class Exception extends \Exception {
+class Exception extends \Exception
+{
 }

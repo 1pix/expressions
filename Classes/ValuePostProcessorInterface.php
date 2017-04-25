@@ -21,14 +21,15 @@ namespace Cobweb\Expressions;
  * @package TYPO3
  * @subpackage tx_expressions
  */
-interface ValuePostProcessorInterface {
-	/**
-	 * This method must be implemented for post-processing a parsed value.
-	 *
-	 * It must return a value too, even if that is the unchanged input value.
-	 *
-	 * @param mixed $value The value that resulted from parsing an expression
-	 * @return mixed The resulting value
-	 */
-	public function postprocessReturnValue($value);
+interface ValuePostProcessorInterface
+{
+    /**
+     * This method must be implemented for post-processing a parsed value.
+     *
+     * It must return a value too, even if that is the unchanged input value.
+     *
+     * @param mixed $value The value that resulted from parsing an expression
+     * @return mixed The resulting value
+     */
+    public function postprocessReturnValue($value);
 }

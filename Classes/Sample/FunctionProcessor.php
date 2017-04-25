@@ -53,10 +53,10 @@ class FunctionProcessor {
 	 * @return mixed The processed value
 	 */
 	public function offset($parameters, $parentObject) {
-		$value = intval($parameters[0]);
+		$value = (int)$parameters[0];
 		$offset = 0;
 		if (isset($parameters[1])) {
-			$offset = intval($parameters[1]);
+			$offset = (int)$parameters[1];
 		}
 		return $value + $offset;
 	}

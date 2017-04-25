@@ -30,20 +30,21 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  *
  * Expression keys reference:
  *
- * tsfe:      get a value from the $TSFE global variable
- * page:      get a value related to the current page, as stored in $TSFE->page
  * config:    get a value from the “config” object, as stored in $TSFE->config['config']
- * plugin:    get a TypoScript property for a plugin as stored in $GLOBALS['TSFE']->tmpl->setup['plugin.'].
- * gp:        get a value from either the $_GET or $_POST superglobal arrays
- * vars:      get a value from "internal" variables.
- * extra:     see documentation
  * date:      get values related to the current time, using formats from the PHP date() function.
- * strtotime: get a timestamp by interpreting a human-readable date.
- * session:   get values from some structure stored in the temporary session
+ * extra:     see documentation
+ * env:       get a value from the environment variables
  * fe_user:   get values from FE User
+ * gp:        get a value from either the $_GET or $_POST superglobal arrays
+ * page:      get a value related to the current page, as stored in $TSFE->page
+ * plugin:    get a TypoScript property for a plugin as stored in $GLOBALS['TSFE']->tmpl->setup['plugin.'].
+ * session:   get values from some structure stored in the temporary session
+ * strtotime: get a timestamp by interpreting a human-readable date.
+ * tsfe:      get a value from the $TSFE global variable
+ * vars:      get a value from "internal" variables.
  *
  * More documentation can be found at
- * http://typo3.org/extensions/repository/view/expressions/current/
+ * https://docs.typo3.org/typo3cms/extensions/expressions/2.0.0/User/ExpressionKeys/Index.html
  *
  * = Examples =
  *
@@ -72,26 +73,28 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  * @author Fabien Udriot <fabien.udriot@ecodev.ch>
  * @author Francois Suter <typo3@cobweb.ch>
  */
-class EvaluateViewHelper extends AbstractViewHelper {
+class EvaluateViewHelper extends AbstractViewHelper
+{
 
-	/**
-	 * Evaluates expression throughout the Expression Parser.
-	 *
-	 * @param string $expression Expression to be evaluated
-	 * @return string the evaluated string.
-	 */
-	public function render($expression = NULL) {
-		if ($expression === NULL) {
-			$expression = $this->renderChildren();
-		};
-		// Replace escaped curly braces
-		$searches[] = '\{';
-		$replaces[] = '{';
-		$searches[] = '\}';
-		$replaces[] = '}';
-		$expression = str_replace($searches, $replaces, $expression);
-		// Evaluate and return
-		return ExpressionParser::evaluateString($expression);
-	}
+    /**
+     * Evaluates expression throughout the Expression Parser.
+     *
+     * @param string $expression Expression to be evaluated
+     * @return string the evaluated string.
+     */
+    public function render($expression = null)
+    {
+        if ($expression === null) {
+            $expression = $this->renderChildren();
+        }
+        // Replace escaped curly braces
+        $searches[] = '\{';
+        $replaces[] = '{';
+        $searches[] = '\}';
+        $replaces[] = '}';
+        $expression = str_replace($searches, $replaces, $expression);
+        // Evaluate and return
+        return ExpressionParser::evaluateString($expression);
+    }
 
 }

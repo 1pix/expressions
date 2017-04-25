@@ -1,3 +1,7 @@
+2017-04-25 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Cleaned up code, verified compatibility with TYPO3 CMS 8
+
 2016-03-14 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Released to TER as version 2.0.0, resolves #75524
