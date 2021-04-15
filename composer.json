@@ -1,5 +1,5 @@
 {
-	"name": "cobweb/expressions",
+	"name": "1pix/expressions",
 	"type": "typo3-cms-extension",
 	"description": "A library for bringing into extensions something like the TypoScript getText function.",
 	"license": [
